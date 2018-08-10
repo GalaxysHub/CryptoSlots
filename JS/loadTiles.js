@@ -2,9 +2,9 @@
 
 const canvasSlots = document.getElementById('slots');
 
-const casinoSound = new sound("./sounds/casinoSound.wav");
-const slotStop = new sound("./sounds/slotStop2.wav");
-const lineWin = new sound("./sounds/Swoosh.wav");
+const casinoSound = new sound("./Sounds/casinoSound.wav");
+const slotStop = new sound("./Sounds/slotStop2.wav");
+const lineWin = new sound("./Sounds/Swoosh.wav");
 
 var currentLine;
 var winningLines = [];

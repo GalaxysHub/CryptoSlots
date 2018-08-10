@@ -32,7 +32,7 @@ const mainButtonHeight = 130, mainButtonWidth = mainButtonHeight*2,
 const textShiftY = 20;
 
 const imgList = {};
-var  buttons = ['LeftArrowRed.png','RightArrowRed.png','redSquare.png','blueTriangleUpDown.png','redOval.png','greenOval.png'],
+var  buttons = ['LeftArrowRed.png','RightArrowRed.png','RedSquare.png','BlueTriangleUpDown.png','RedOval.png','GreenOval.png'],
   imgLocs = [
     {name: 'LeftArrowRed', x: sideArrowXLoc, y:lineBetYLoc, w:sideArrowSize, h:sideArrowSize},//Line Bet
     {name: 'RightArrowRed', x: sideArrowXLoc+sideArrowDif, y:lineBetYLoc, w:sideArrowSize, h:sideArrowSize},
@@ -40,9 +40,9 @@ var  buttons = ['LeftArrowRed.png','RightArrowRed.png','redSquare.png','blueTria
     {name: 'RightArrowRed', x: sideArrowXLoc+sideArrowDif, y:NumLinesYLoc, w:sideArrowSize, h:sideArrowSize},
     {name: 'LeftArrowRed', x: ovalXLoc, y:lineBetYLoc, w:sideArrowSize, h:sideArrowSize},//Auto Play Games
     {name: 'RightArrowRed', x: ovalXLoc+greenOvalWidth-sideArrowSize, y:lineBetYLoc, w:sideArrowSize, h:sideArrowSize},
-    {name: 'redSquare', x: mainButtonXLoc, y:mainButtonYLoc, w:mainButtonWidth, h:mainButtonHeight},
-    {name: 'greenOval', x: ovalXLoc, y:greenOvalYLoc, w:greenOvalWidth, h:greenOvalHeight},
-    {name: 'redOval', x: ovalXLoc, y:redOvalYLoc, w:redOvalWidth, h:redOvalHeight},
+    {name: 'RedSquare', x: mainButtonXLoc, y:mainButtonYLoc, w:mainButtonWidth, h:mainButtonHeight},
+    {name: 'GreenOval', x: ovalXLoc, y:greenOvalYLoc, w:greenOvalWidth, h:greenOvalHeight},
+    {name: 'RedOval', x: ovalXLoc, y:redOvalYLoc, w:redOvalWidth, h:redOvalHeight},
   ],
   clickLocs = [
 
