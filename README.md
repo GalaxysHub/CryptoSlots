@@ -38,19 +38,26 @@ The bonus game feature has not been implemented but it was supposed to be achiev
 
 ## Game Custimization
 
-Change the tile images in the Pictures/MainTiles folder. The pictures must be PNG and have the same naming convention.
-Change the background images in the Pictures/backgrounds folder.
+### Images
 
-#The following properties can be customized in the *initconditions.js* file
-The number of reels (max 5) - Number of elements in the **slotWidths** array.
+Change the tile images in the *Pictures/MainTiles* folder. The pictures must be PNG and have the same naming convention.
 
-Reel size - Value of an element in the **slotWidths** array. 
+Change the background images in the *Pictures/backgrounds* folder.
 
-Example: 
+### Game Properties
+#### The following properties can be customized in the *initconditions.js* file
 
-const slotWidths = [Math.floor(cWidth/5),Math.floor(cWidth/5),Math.floor(cWidth/5)]
+The number of reels (max 5) - Number of elements in the **slotWidths** array
 
-creates a 3 reel slot machine of equal length reels.
+Reel size - Value of an element in the **slotWidths** array
+
+
+*Example:*
+
+*const slotWidths = [Math.floor(cWidth/5),Math.floor(cWidth/5),Math.floor(cWidth/5)]*
+
+*creates a 3 reel slot machine of equal length reels*
+
 
 Number of tiles per reel (max 6): **nTilesPerCol** variable
 
