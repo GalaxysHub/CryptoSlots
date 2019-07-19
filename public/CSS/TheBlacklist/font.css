@@ -1,0 +1,11 @@
+@font-face {
+	font-family: 'TheBlacklist';
+	src: url('./TheBlacklist.eot');
+	src: local('TheBlacklist'), url('./TheBlacklist.woff') format('woff'), url('./TheBlacklist.ttf') format('truetype');
+}
+/* use this class to attach this font to any element i.e. <p class="fontsforweb_fontid_79299">Text with this font applied</p> */
+.fontsforweb_fontid_79299 {
+	font-family: 'TheBlacklist' !important;
+}
+
+/* Font downloaded from FontsForWeb.com */
