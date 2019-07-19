@@ -1,4 +1,7 @@
 # CryptoSlots
+
+See deployed app here: https://cryptoslots.herokuapp.com/slot.html
+
 HTML5 Slotmachine (5 Reel 3 Tile)
 
 Written in pure Vanilla Javascript with no third-party libraries.  
@@ -8,15 +11,6 @@ This was the first game I made in Javascript in the minimial working condition t
 Feel free to use this game for personal uses but do not use it for real money.
 
 <img width="614" alt="cryptoslots" src="https://user-images.githubusercontent.com/39435918/53037083-df457a80-343e-11e9-95c9-017228e859c6.PNG">
-
-
-## Download Instructions
-
-Download and unzip the repo. 
-
-Open the file named slot.html. 
-
-If images/fonts are missing, Refresh the page.
 
 ## Game Description
 
