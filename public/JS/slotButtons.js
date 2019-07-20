@@ -1,6 +1,6 @@
 "use strict"
 
-var canvasButtons = document.getElementById('buttons'),
+const canvasButtons = document.getElementById('buttons'),
   canvasScreen = document.getElementById('glassScreen'),
   ctxBtn = canvasButtons.getContext('2d'),
   ctxScreen = canvasScreen.getContext('2d');
@@ -18,21 +18,21 @@ canvasScreen.style.top = canvasBtnBG.style.top;
 canvasScreen.width = cWidth;
 canvasScreen.height = ctxBtnHeight;
 
-const mainButtonHeight = 130, mainButtonWidth = mainButtonHeight*2,
+const mainButtonHeight = cWidth*130/800, mainButtonWidth = mainButtonHeight*2,
  greenOvalHeight = ctxBtnHeight/4, greenOvalWidth = cWidth/4,
  redOvalHeight = greenOvalHeight, redOvalWidth = greenOvalWidth,
- sideArrowDif = 125, sideArrowSize = 25;
+ sideArrowDif = cWidth*125/800, sideArrowSize = cWidth*25/800;
 
- const mainButtonXLoc = (cWidth-mainButtonWidth)/2, mainButtonYLoc = (ctxBtnHeight-mainButtonHeight)/2,
+const mainButtonXLoc = (cWidth-mainButtonWidth)/2, mainButtonYLoc = (ctxBtnHeight-mainButtonHeight)/2,
  ovalXLoc = cWidth*.7, greenOvalYLoc = greenOvalHeight*1.5, redOvalYLoc = (ctxBtnHeight-redOvalHeight)*.9,
- sideArrowXLoc = 60,
- lineBetYLoc = 35,
- NumLinesYLoc = 110;
+ sideArrowXLoc =cWidth*(3/40),
+ lineBetYLoc = cWidth*(35/800),
+ NumLinesYLoc = cWidth*(11/80);
 
-const textShiftY = 20;
+const textShiftY = cWidth*(20/800);
 
 const imgList = {};
-var  buttons = ['LeftArrowRed.png','RightArrowRed.png','RedSquare.png','BlueTriangleUpDown.png','RedOval.png','GreenOval.png'],
+const  buttons = ['LeftArrowRed.png','RightArrowRed.png','RedSquare.png','BlueTriangleUpDown.png','RedOval.png','GreenOval.png'],
   imgLocs = [
     {name: 'LeftArrowRed', x: sideArrowXLoc, y:lineBetYLoc, w:sideArrowSize, h:sideArrowSize},//Line Bet
     {name: 'RightArrowRed', x: sideArrowXLoc+sideArrowDif, y:lineBetYLoc, w:sideArrowSize, h:sideArrowSize},
@@ -48,7 +48,7 @@ var  buttons = ['LeftArrowRed.png','RightArrowRed.png','RedSquare.png','BlueTria
 
   ]
 
-  var btnImgsPromArr = returnPromiseImgArr(buttons,imgList,'./Pictures/button/');
+  const btnImgsPromArr = returnPromiseImgArr(buttons,imgList,'./Pictures/button/');
 
   Promise.all(btnImgsPromArr).then(function(){
     drawButtons();
@@ -56,7 +56,7 @@ var  buttons = ['LeftArrowRed.png','RightArrowRed.png','RedSquare.png','BlueTria
   });
 
 function getMousePos(canvas, evt){
-  var rect = canvas.getBoundingClientRect();
+  let rect = canvas.getBoundingClientRect();
   return{
     x: evt.clientX - rect.left,
     y: evt.clientY - rect.top
@@ -74,7 +74,7 @@ function drawButtons(){
     }
 }
 
-var writeText = (function(){
+const writeText = (function(){
   const fontSize = sideArrowSize-2;
 
   const lineBetDisplayX = sideArrowXLoc+(sideArrowSize+sideArrowDif)/2,

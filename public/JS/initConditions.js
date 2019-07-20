@@ -1,10 +1,16 @@
 "use strict";
 
-const cDisplayHeight = 150;
-const cWidth = 800;
-const cHeight = 500;
-const frameThickness = 5;
-var numPics = 8;
+// const cWidth = 800,
+//   cHeight = 500,
+//   cDisplayHeight = 150,
+//   frameThickness = 5;
+
+const cWidth = Math.floor(800),
+  cHeight = Math.floor(cWidth*5/8),
+  cDisplayHeight = Math.floor(cWidth*3/16),
+  frameThickness = Math.floor(cWidth*1/160);
+
+let numPics = 8;
 
 const slotWidths = [Math.floor(cWidth/6),Math.floor(cWidth/7),Math.floor(cWidth/5),Math.floor(cWidth/7),Math.floor(cWidth/6)]
 const slotFrames = slotWidths.map(width=>Math.floor(width*frameThickness/100));
@@ -12,18 +18,18 @@ const tileSizeArr = slotWidths.map(width=>Math.floor(width*(1-frameThickness/50)
 const nTilesPerCol = 3;
 const numReels = slotWidths.length;
 
-var balance = 50000;
-var betPerLine = 50;
-var numLines = 5;
-var totalBet = betPerLine*numLines;
+let balance = 50000;
+let betPerLine = 50;
+let numLines = 5;
+let totalBet = betPerLine*numLines;
 
-var numAutoGames = 0;
-var auto = false;
+let numAutoGames = 0;
+let auto = false;
 
-var payoutSum = 0;
-var payout = 0;
+let payoutSum = 0;
+let payout = 0;
 
-var finalBalance = balance+payoutSum;
+let finalBalance = balance+payoutSum;
 
 //Slot properties
 const numTilesFirstReel = 6;
@@ -168,14 +174,14 @@ const tileProbs= [
   [30,30,30,30,30]
 ];
 
-var validTileNums = [];
+let validTileNums = [];
 
 //fills validTileNums to be used when randomly selecting outcome tiles
-for(var i = 0; i<numReels; i++){
+for(let i = 0; i<numReels; i++){
   validTileNums.push([tileProbs[0][i]]);
 }
-for(var i = 1; i<numPics; i++){
-  for(var j = 0; j<numReels; j++){
+for(let i = 1; i<numPics; i++){
+  for(let j = 0; j<numReels; j++){
     validTileNums[j].push(tileProbs[i][j]+validTileNums[j][i-1]);
   }
 }

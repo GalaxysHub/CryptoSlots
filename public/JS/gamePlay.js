@@ -1,7 +1,7 @@
 "use strict"
 
 function spinSlots(){
-  if(canSpin ==true){
+  if(canSpin == true){
     console.log("balance: " + balance);
     displayAllBetInfo();
     if(totalBet==0){console.log('Please make a bet');
@@ -12,7 +12,7 @@ function spinSlots(){
 
 function playGame(){
   balance = finalBalance; //allows user to continue playing without waiting for balance to finish updating.
-  if(bonus == false){payoutSum = 0;}
+  // if(bonus == false){payoutSum = 0;}
   ctxAnimate.clearRect(0,0,cWidth,cHeight);
   shrink = false;
   vPos = [0,0,0,0,0];
@@ -29,7 +29,7 @@ function playGame(){
   slideTile();
 }
 
-var gameNum = 0;
+let gameNum = 0;
 function autoPlay(){
   //takes all money for auto games but free for bonus games
   if(auto==false&&bonus==false){
@@ -60,17 +60,17 @@ function findWinners(){
   winningLines = [];
   winningReels =[];
 
-  for(var lineNum = 0; lineNum<numLines; lineNum++){
+  for(let lineNum = 0; lineNum<numLines; lineNum++){
 
     //looks for 5 in a row winners and works down
-    for(var j=numReels;j>2;j--){
-      var tilesInLine = [];
+    for(let j=numReels;j>2;j--){
+      let tilesInLine = [];
 
-      for(var i= 0; i<j; i++){
+      for(let i= 0; i<j; i++){
         tilesInLine.push(parseInt(finalTiles[i][lines[lineNum][i]].split('e')[1]))
       }
 
-      var set = new Set(tilesInLine);
+      let set = new Set(tilesInLine);
       tilesInLine = [...set];
       tilesInLine.sort();
       //Needs new rule to find 3/4 wilds vs 4/5 of a kind
@@ -94,8 +94,7 @@ function findWinners(){
 }
 
 function returnFairRandTile(rand, reel){
-  let n;
-  for(n=0; n<numPics; n++){
+  for(let n=0; n<numPics; n++){
     if(rand<validTileNums[reel][n]){
       return n;
     }
@@ -105,14 +104,13 @@ function returnFairRandTile(rand, reel){
 function createOutcome(){
   finalOutcome = [];
   finalTiles = [];
-  let i, j, p, tile;
-  for(i =0; i<numReels;i++){
+  for(let i =0; i<numReels;i++){
     let colFinTiles = [];
     let colFinTileKeys = [];
-    for(j = 0; j<nTilesPerCol; j++){
+    for(let j = 0; j<nTilesPerCol; j++){
       // p = Math.floor(Math.random()*numPics);
-      p = Math.floor(Math.random()*validTileNums[i][numPics-1]);
-      tile = returnFairRandTile(p,i);
+      let p = Math.floor(Math.random()*validTileNums[i][numPics-1]);
+      let tile = returnFairRandTile(p,i);
       colFinTiles.push(loadedImages[Object.keys(loadedImages)[tile]]);
       colFinTileKeys.push(Object.keys(loadedImages)[tile]);
     }
@@ -170,7 +168,7 @@ function slideTile(){
         }
       }
       //Adds outcome tiles to the screen
-      for(var c = 0; c<nTilesPerCol; c++){
+      for(let c = 0; c<nTilesPerCol; c++){
         ctx.drawImage(finalOutcome[i][c],tileXPos ,tileYPosArr[0]+slotFrames[i]-slotWidths[i]*(endReelTile+c)+vPos[i],tileSize, tileSize);
       }
       vPos[i] += reelSpeed[i];

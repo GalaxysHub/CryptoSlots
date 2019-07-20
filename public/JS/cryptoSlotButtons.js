@@ -1,19 +1,18 @@
 "use strict"
 //Old script. Used for css version
 
+let canvasButtons = document.getElementById('buttons');
 
-var canvasButtons = document.getElementById('buttons');
-
-canvasButtons.height = 200;
+canvasButtons.height = cWidth*0.25;
 canvasButtons.width = cWidth;
 canvasButtons.style.zIndex = -1;
 canvasButtons.style.opacity = "0.8";
 
-var button1 = {
-  x:200,
-  y:50,
-  width:50,
-  height:50
+let button1 = {
+  x:canvasButtons.height,
+  y:canvasButtons.height/4,
+  width:canvasButtons.height/4,
+  height:canvasButtons.height/4,
 };
 
 if(canvasButtons.getContext){
@@ -30,8 +29,7 @@ if(canvasButtons.getContext){
 }
 
 canvasButtons.style.opacity = "1.0";
-var button = ctxBtns.fillRect(button1.x,button1.y,button1.width,button1.height);
-
+let button = ctxBtns.fillRect(button1.x,button1.y,button1.width,button1.height);
 
 function getMousePos(canvas,evt){
   var rect = canvas.getBoundingClientRect();
@@ -47,7 +45,7 @@ function isInside(pos, rect){
 
 
 ctxBtns.font = "20px TheBlacklist";
-ctxBtns.fillText(betPerLine,10,50);
+ctxBtns.fillText(betPerLine,canvasButtons*(cWidth/80),canvasButtons.height/4);
 
 canvasButtons.addEventListener('click', function(evt){
   var mousePos = getMousePos(canvasButtons,evt);

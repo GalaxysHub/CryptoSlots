@@ -1,10 +1,10 @@
 "use strict";
 
-var canvasDisplayBG = document.getElementById('displayBG');
-var canvasBG = document.getElementById('background');
-var canvasBtnBG = document.getElementById('buttonsBG');
+const canvasDisplayBG = document.getElementById('displayBG');
+const canvasBG = document.getElementById('background');
+const canvasBtnBG = document.getElementById('buttonsBG');
 
-const ctxBtnTop = cDisplayHeight+cHeight, ctxBtnHeight = 200;
+const ctxBtnTop = cDisplayHeight+cHeight, ctxBtnHeight = cHeight*2/5;
 // canvasBtnBG.style.opacity = "0.8";
 // canvasBG.style.opacity = "0.85"
 
@@ -55,7 +55,6 @@ function slotOutline(){
 
 //only drawn when there's a winning line
 function drawWinnerBackground(lineNum, lastWinningReel=numReels){
-
   let line = lines[lineNum];
   //redraws background and all final outcome tiles except winning line
   ctx.clearRect(0,0,cWidth,cHeight);

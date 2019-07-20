@@ -6,44 +6,49 @@ const casinoSound = new sound("./Sounds/casinoSound.wav");
 const slotStop = new sound("./Sounds/slotStop2.wav");
 const lineWin = new sound("./Sounds/Swoosh.wav");
 
-var currentLine;
-var winningLines = [];
-var tilesInLineArr = [];
-var winningReels = [];
+let currentLine;
+let winningLines = [];
+let tilesInLineArr = [];
+let winningReels = [];
 
-var shrink;
-var canSpin=true;
+let shrink;
+let canSpin=true;
 
-var xPos = [];
-var tileXPosArr = [];
-var yPosArr = [];
-var vPos = [];
+let xPos = [];
+let tileXPosArr = [];
+let yPosArr = [];
+let vPos = [];
+
+let finalOutcome = [];
+let finalTiles = [];
+
+let pics = [];
+let loadedImages = {};
+let ctx;
 
 if(canvasSlots.getContext){
   canvasSlots.width = cWidth;
   canvasSlots.height = cHeight;
 
-  var ctx = canvasSlots.getContext('2d');
+  ctx = canvasSlots.getContext('2d');
   ctx.globalCompositionOperation = 'destination-over';
 
-  var pics = [];
-  var loadedImages = {};
+  pics = [];
+  loadedImages = {};
 
   for(let i=0; i<numPics;i++){pics[i] = `tile${i}.png`;}
 
-  var finalOutcome = [];
-  var finalTiles = [];
-
-
+  finalOutcome = [];
+  finalTiles = [];
 
   //Tiles Horizontal Postions
-  var sumBack = 0;
+  let sumBack = 0;
   //find first horizontal position for tiles
   for(let i = 0; i<Math.floor(numReels/2); i++){
     sumBack += slotWidths[i];
   }
   if(numReels%2==1){sumBack+=0.5*slotWidths[Math.floor(numReels/2)];}
-  var xStart = cWidth/2-sumBack;
+  let xStart = cWidth/2-sumBack;
   xPos[0] = xStart;
   tileXPosArr[0]=xStart+slotFrames[0];
   //fill tiles horizontal positions array
@@ -53,12 +58,12 @@ if(canvasSlots.getContext){
   }
 
   //fill tiles vertical positions array
-  var yPos
-  var yStart;
+  let yPos
+  let yStart;
   for(let i = 0; i<numReels; i++){
     yPos = [];
     yStart = Math.floor(cHeight/2-nTilesPerCol/2*slotWidths[i]);
-    for(j =0;j<nTilesPerCol;j++){
+    for(let j =0;j<nTilesPerCol;j++){
       yPos.push(yStart+slotWidths[i]*j);
     }
     yPosArr.push(yPos)
@@ -67,7 +72,7 @@ if(canvasSlots.getContext){
 
   drawSlotFrame()
   const loc2 = './Pictures/MainTiles/';
-  var promiseArray2 = returnPromiseImgArr(pics,loadedImages,loc2);
+  let promiseArray2 = returnPromiseImgArr(pics,loadedImages,loc2);
   Promise.all(promiseArray2).then(function(){
     createOutcome();
     drawFinalOutcome();
@@ -76,7 +81,7 @@ if(canvasSlots.getContext){
 
 
 function drawSlotFrame(){
-  ctx.lineWidth = 1;
+  ctx.lineWidth = cWidth/800;
   ctx.strokeStyle = "black";
   ctx.clearRect(0,0,cWidth,cHeight);
   for(let i = 0; i<numReels; i++){
