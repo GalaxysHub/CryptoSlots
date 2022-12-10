@@ -1,7 +1,6 @@
 # CryptoSlots
 
-See deployed app here: https://cryptoslots.herokuapp.com/slot.html
-
+See deployed app here: https://cryptoslots.netlify.app/slot.html
 HTML5 Slotmachine (5 Reel 3 Tile)
 
 Written in pure Vanilla Javascript with no third-party libraries.  
