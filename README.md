@@ -1,76 +1,131 @@
 # CryptoSlots
 
-See deployed app here: https://cryptoslots.netlify.app/slot.html
-HTML5 Slotmachine (5 Reel 3 Tile)
+A pure vanilla JavaScript HTML5 slot machine game featuring cryptocurrency-themed symbols with 5 reels, 3 rows, and up to 50 paylines.
 
-Written in pure Vanilla Javascript with no third-party libraries.  
+🎰 **Live Demo**: [https://crypto-slots-icon.vercel.app/](https://crypto-slots-icon.vercel.app/)
 
-This was the first game I made in Javascript in the minimial working condition that I felt comfortable presenting.  It contains some outdated syntax because I was in the process of learning ES6 and needs to be cleaned up a bit.
+## Features
 
-Feel free to use this game for personal uses but do not use it for real money.
+- **5 Reels × 3 Rows** slot machine with up to 50 configurable paylines
+- **Wild Symbols** - Shapeshift symbol substitutes for all other symbols
+- **Adjustable Betting** - Modify line bet (1-100) and active paylines (1-50)
+- **Autoplay Mode** - Automated spinning with customizable spin count
+- **Max Bet Calculator** - Instantly calculate maximum possible bet
+- **Animated Wins** - Visual payline highlighting and tile scaling effects
+- **Canvas-based UI** - Smooth HTML5 Canvas rendering with responsive design
+- **Pure Vanilla JS** - No frameworks or third-party dependencies
 
-<img width="614" alt="cryptoslots" src="https://user-images.githubusercontent.com/39435918/53037083-df457a80-343e-11e9-95c9-017228e859c6.PNG">
+## Game Mechanics
 
-## Game Description
+- **Minimum Win**: 3 matching symbols from left to right on active paylines
+- **Wild Substitution**: Shapeshift symbols act as wild cards for any symbol
+- **Weighted Probability**: Each symbol has configurable appearance probability
+- **Real-time Balance**: Dynamic balance updates with win animations
 
-Match the number of tiles from left to right for a series of lines. At least 3 tiles must match in this game for a win.
+## Getting Started
 
-## Game Features
+### Local Development
+```bash
+# Clone the repository
+git clone https://github.com/GalaxysHub/CryptoSlots.git
+cd CryptoSlots
 
-Shapeshift symbol is wild.
+# Start local development server
+npm start
+# Opens on http://localhost:8000
 
-Ability to change the line bet (up to 100) and the number of lines (up to 50).
+# Alternative Python server
+python3 -m http.server 8000
+```
 
-Autoplay multiple games.
+### Deployment
+This is a static HTML5 game - deploy to any static hosting service:
+- **Vercel**: `vercel --prod`
+- **Netlify**: Drag and drop the project folder
+- **GitHub Pages**: Enable Pages in repository settings
 
-Max bet calculator
+## Project Structure
 
-The tile images for each reel are not fixed like a physical slot machines. Instead each image has a different probabilty of showing up and is randomly selected.
+```
+CryptoSlots/
+├── index.html              # Main entry point
+├── public/
+│   ├── JS/                 # Game logic modules
+│   │   ├── initConditions.js    # Game configuration & constants
+│   │   ├── loadTiles.js         # Canvas setup & asset loading
+│   │   ├── gamePlay.js          # Core game engine
+│   │   ├── animations.js        # Win animations & effects
+│   │   ├── background.js        # Background rendering
+│   │   ├── slotButtons.js       # Button interaction system
+│   │   ├── displayFunctions.js  # UI updates & balance display
+│   │   └── asyncHelperFunctions.js # Utility functions
+│   ├── Pictures/           # Game assets
+│   │   ├── MainTiles/      # Symbol images (tile0.png - tile13.png)
+│   │   ├── backgrounds/    # Background images
+│   │   ├── button/         # UI button graphics
+│   │   └── CryptoLogos/    # Cryptocurrency themed symbols
+│   ├── Sounds/             # Audio effects (.wav files)
+│   └── CSS/                # Fonts and styling
+└── vercel.json             # Vercel deployment configuration
+```
 
-The bonus game feature has not been implemented but it was supposed to be achieved by aligning the Bitcoin Cash tiles. Free games using tile images of all the Bitcoin forks were to be awarded.
+## Customization
 
-## Game Custimization
+### Adding New Symbols
+1. Add tile image to `public/Pictures/MainTiles/` following naming convention (`tileX.png`)
+2. Update `numPics` variable in `initConditions.js`
+3. Add probability row to `tileProbs` array
+4. Update `payouts` array for new symbol payouts
 
-### Images
+### Modifying Game Parameters
+Edit `public/JS/initConditions.js`:
+- **Reel Configuration**: Modify `slotWidths` array (max 5 reels)
+- **Symbol Probabilities**: Adjust `tileProbs` array values
+- **Payout Structure**: Update `payouts` array (3×3 matrix for 3/4/5-of-a-kind)
+- **Paylines**: Modify `lines` array (currently supports 50 paylines)
 
-Change the tile images in the *Pictures/MainTiles* folder. The pictures must be PNG and have the same naming convention.
+### Example: 3-Reel Configuration
+```javascript
+const slotWidths = [
+    Math.floor(cWidth/3), 
+    Math.floor(cWidth/3), 
+    Math.floor(cWidth/3)
+];
+```
 
-Change the background images in the *Pictures/backgrounds* folder.
+## Technical Architecture
 
-### Game Properties
-#### The following properties can be customized in the *initconditions.js* file
+- **Canvas Layer System**: Multiple overlapping canvases for different rendering layers
+- **Module-based JS**: 8 JavaScript modules loaded in dependency order
+- **Global State Management**: Shared state across modules via global variables
+- **RequestAnimationFrame**: Smooth 60fps animations for spinning and effects
+- **Responsive Design**: Canvas scales to different screen sizes
 
-The number of reels (max 5) - Number of elements in the **slotWidths** array
+## Browser Compatibility
 
-Reel size - Value of an element in the **slotWidths** array
+- **Modern Browsers**: Chrome, Firefox, Safari, Edge (ES6+ support required)
+- **Mobile Friendly**: Touch-optimized interface
+- **Canvas Support**: HTML5 Canvas API required
 
+## Legal Notice
 
-*Example:*
+**For entertainment purposes only. Do not use for real money gambling.**
 
-*const slotWidths = [Math.floor(cWidth/5),Math.floor(cWidth/5),Math.floor(cWidth/5)]*
+## Contributing
 
-*creates a 3 reel slot machine of equal length reels*
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/new-feature`)
+3. Commit changes (`git commit -am 'Add new feature'`)
+4. Push to branch (`git push origin feature/new-feature`)
+5. Open a Pull Request
 
+## Credits
 
-Number of tiles per reel (max 6): **nTilesPerCol** variable
+- **Fonts**: [Font Squirrel](https://www.fontsquirrel.com/)
+- **Button Graphics**: [Da Button Factory](https://dabuttonfactory.com/)
+- **Sound Effects**: [Freesound.org](https://freesound.org/)
+- **Symbol Images**: Various cryptocurrency logos and custom graphics
 
-Note: A different array of paylines has to be used for more than 3 tiles per column
+## License
 
-Tile frequency per reel: **tileProb** array.
-
-Payout struture: **payouts** array.
-
-## Third Party Contributions
-
-### Fonts
-https://www.fontsquirrel.com/
-
-### Images
-
-Buttons created with https://dabuttonfactory.com/
-
-All other images found with Google Images
-
-### Sounds
-
-https://freesound.org/
+ISC License - See repository for details.

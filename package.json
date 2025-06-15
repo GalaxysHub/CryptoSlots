@@ -2,10 +2,10 @@
   "name": "cryptoslots",
   "version": "1.0.0",
   "description": "HTML5 Slotmachine (5 Reel 3 Tile)",
-  "main": "server.js",
+  "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
+    "start": "python3 -m http.server 8000",
     "build": "echo \"No build process needed - static site\" && exit 0"
   },
   "repository": {
@@ -17,8 +17,5 @@
   "bugs": {
     "url": "https://github.com/GalaxysHub/CryptoSlots/issues"
   },
-  "homepage": "https://github.com/GalaxysHub/CryptoSlots#readme",
-  "dependencies": {
-    "express": "^4.17.1"
-  }
+  "homepage": "https://github.com/GalaxysHub/CryptoSlots#readme"
 }
