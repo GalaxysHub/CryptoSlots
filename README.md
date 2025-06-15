@@ -4,6 +4,8 @@ A pure vanilla JavaScript HTML5 slot machine game featuring cryptocurrency-theme
 
 🎰 **Live Demo**: [https://crypto-slots-icon.vercel.app/](https://crypto-slots-icon.vercel.app/)
 
+<img width="614" alt="cryptoslots" src="https://user-images.githubusercontent.com/39435918/53037083-df457a80-343e-11e9-95c9-017228e859c6.PNG">
+
 ## Features
 
 - **5 Reels × 3 Rows** slot machine with up to 50 configurable paylines
