@@ -2,9 +2,9 @@
 
 const canvasSlots = document.getElementById('slots');
 
-const casinoSound = new sound("./Sounds/casinoSound.wav");
-const slotStop = new sound("./Sounds/slotStop2.wav");
-const lineWin = new sound("./Sounds/Swoosh.wav");
+const casinoSound = new sound("./public/Sounds/casinoSound.wav");
+const slotStop = new sound("./public/Sounds/slotStop2.wav");
+const lineWin = new sound("./public/Sounds/Swoosh.wav");
 
 let currentLine;
 let winningLines = [];
@@ -71,7 +71,7 @@ if(canvasSlots.getContext){
 
 
   drawSlotFrame()
-  const loc2 = './Pictures/MainTiles/';
+  const loc2 = './public/Pictures/MainTiles/';
   let promiseArray2 = returnPromiseImgArr(pics,loadedImages,loc2);
   Promise.all(promiseArray2).then(function(){
     createOutcome();

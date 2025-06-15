@@ -48,7 +48,7 @@ const  buttons = ['LeftArrowRed.png','RightArrowRed.png','RedSquare.png','BlueTr
 
   ]
 
-  const btnImgsPromArr = returnPromiseImgArr(buttons,imgList,'./Pictures/button/');
+  const btnImgsPromArr = returnPromiseImgArr(buttons,imgList,'./public/Pictures/button/');
 
   Promise.all(btnImgsPromArr).then(function(){
     drawButtons();

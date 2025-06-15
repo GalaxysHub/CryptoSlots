@@ -1,6 +1,0 @@
-...THIS FONT IS FREE FOR PERSONAL USE...
-Commercial license font are available there :
-
-octotypeone@gmail.com   
- 
-Thank's!

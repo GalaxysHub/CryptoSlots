@@ -29,7 +29,7 @@ if(canvasDisplayBG.getContext&&canvasBG.getContext&&canvasBtnBG.getContext){
 
   var BGImages = [];
   var backgroundPics = ['background.jpg','background2.jpg','background5.jpg','background7.jpg','backgroundSlot.jpg','backgroundSlotHD.jpg'];
-  var loc1 = './Pictures/backgrounds/'
+  var loc1 = './public/Pictures/backgrounds/'
 
   var promiseArray1 = returnPromiseImgArr(backgroundPics,BGImages,loc1);
   Promise.all(promiseArray1).then(drawBG);
